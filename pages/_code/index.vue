@@ -19,11 +19,14 @@
 import Highlight from 'vue-highlight-component'
 
 import CodeGql from '~/graphql/Code.graphql'
-import updateCodeGql from '~/graphql/updateCode.graphql'
+// import updateCodeGql from '~/graphql/updateCode.graphql'
 
 export default {
   components: {
     Highlight
+  },
+  validate ({ params }) {
+    return /^[a-z0-9]+$/i.test(params.code)
   },
   head () {
     return {
@@ -43,9 +46,6 @@ export default {
         return { id: this.$route.params.code }
       },
       loadingKey: 'loading',
-      error (error) {
-        error({ statusCode: 404, message: error })
-      },
       result ({ data, loader, networkStatus }) {
         // TODO +1 to views
         // this.$apollo.mutate({
