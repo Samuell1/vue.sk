@@ -195,9 +195,9 @@ export default {
     }
     .link {
       padding: 16px;
-      color: #415b76;
+      color: $link;
       &:hover {
-        color: #1a2531;
+        color: $linkHover;
       }
       &.nuxt-link-active {
         color: darken($primary, 3%);

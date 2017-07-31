@@ -16,7 +16,11 @@ html {
   margin: 0;
 }
 a {
+  color: $link;
   text-decoration: none;
+  &:hover {
+    color: $linkHover;
+  }
 }
 
 input {
