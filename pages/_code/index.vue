@@ -47,17 +47,18 @@ export default {
         error({ statusCode: 404, message: error })
       },
       result ({ data, loader, networkStatus }) {
-        this.$apollo.mutate({
-          mutation: updateCodeGql,
-          variables: {
-            id: this.$route.params.code,
-            views: 0
-          }
-        }).then((response) => {
-          console.error(response)
-        }).catch((error) => {
-          console.error(error)
-        })
+        // TODO +1 to views
+        // this.$apollo.mutate({
+        //   mutation: updateCodeGql,
+        //   variables: {
+        //     id: this.$route.params.code,
+        //     views: 0
+        //   }
+        // }).then((response) => {
+        //   console.error(response)
+        // }).catch((error) => {
+        //   console.error(error)
+        // })
       }
     }
   }
