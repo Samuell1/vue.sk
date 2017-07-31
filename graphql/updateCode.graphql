@@ -1,0 +1,12 @@
+mutation updateCode ($id: ID!, $views: Int) {
+  updateCode(id: $id, views: $views) {
+    content
+    createdAt
+    id
+    name
+    private
+    views
+    type
+    updatedAt
+  }
+}

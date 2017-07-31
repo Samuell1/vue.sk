@@ -1,0 +1,12 @@
+query Code($id: ID) {
+  Code(id: $id) {
+    content
+    createdAt
+    id
+    name
+    private
+    views
+    type
+    updatedAt
+  }
+}

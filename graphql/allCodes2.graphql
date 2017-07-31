@@ -1,0 +1,12 @@
+query allCodes {
+  allCodes {
+    content
+    createdAt
+    id
+    name
+    private
+    views
+    type
+    updatedAt
+  }
+}

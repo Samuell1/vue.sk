@@ -1,0 +1,12 @@
+mutation createCode ($content: String!, $name: String!, $private: Boolean, $type: Json!) {
+  createCode(content: $content, name: $name, private: $private, type: $type) {
+    content
+    createdAt
+    id
+    name
+    private
+    views
+    type
+    updatedAt
+  }
+}
