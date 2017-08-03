@@ -18,8 +18,8 @@
 <script>
 import Highlight from 'vue-highlight-component'
 
-import CodeGql from '~/graphql/Code.graphql'
-// import updateCodeGql from '~/graphql/updateCode.graphql'
+import CodeGql from '~/apollo/Code.graphql'
+// import updateCodeGql from '~/apollo/updateCode.graphql'
 
 export default {
   components: {

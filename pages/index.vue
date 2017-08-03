@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import createCodeGql from '~/graphql/createCode.graphql'
-import allCodes from '~/graphql/allCodes.graphql'
+import createCodeGql from '~/apollo/createCode.graphql'
+import allCodes from '~/apollo/allCodes.graphql'
 import detectLang from 'lang-detector'
 
 export default {

@@ -24,8 +24,8 @@ module.exports = {
   ],
   loading: { color: '#0be884' },
   apollo: {
-    clients: {
-      default: 'https://api.graph.cool/simple/v1/cj5fbsvefw8tn01274ukoa657'
+    networkInterfaces: {
+      default: '~/apollo/network-interfaces/default.js'
     }
   },
   plugins: [

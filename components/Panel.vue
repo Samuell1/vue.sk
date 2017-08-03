@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import allCodes from '~/graphql/allCodes.graphql'
+import allCodes from '~/apollo/allCodes.graphql'
 
 export default {
   apollo: {
