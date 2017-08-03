@@ -18,7 +18,8 @@ export default {
       variables: {
         orderBy: 'createdAt_DESC',
         first: 20
-      }
+      },
+      prefetch: true
     }
   }
 }
