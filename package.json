@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@nuxtjs/apollo": "^1.0.0",
+    "apollo-client": "^1.9.0-1",
     "highlight.js": "^9.12.0",
     "lang-detector": "https://github.com/hosein2398/lang-detector/tarball/master",
     "moment": "^2.18.1",

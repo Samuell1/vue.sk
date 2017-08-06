@@ -9,7 +9,7 @@
       <template v-if="searchedCodes.length">
         <div @click.prevent.stop="openSnippet(code.id)" class="search__results__item" v-for="code in searchedCodes" :key="code.id">
           <h6>{{ code.name | placeholder(code.content) | truncate(45) }}</h6>
-          <small>{{ code.type.detected }}, {{ code.createdAt | formatDate }}</small>
+          <small>{{ code.type }}, {{ code.createdAt | formatDate }}</small>
         </div>
       </template>
       <div v-else class="search__results__item">
@@ -58,6 +58,7 @@ export default {
 
 <style lang="scss">
 @import 'assets/variables.scss';
+
 .search {
   position: relative;
   margin-left: 16px;

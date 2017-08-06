@@ -1,4 +1,4 @@
-mutation createCode ($content: String!, $name: String!, $private: Boolean, $type: Json) {
+mutation createCode ($content: String!, $name: String!, $private: Boolean, $type: String) {
   createCode(content: $content, name: $name, private: $private, type: $type) {
     content
     createdAt

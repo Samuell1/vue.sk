@@ -1,5 +1,5 @@
-query allCodes($content_contains: String, $name_contains: String, $orderBy: CodeOrderBy, $first: Int, $last: Int) {
-  allCodes (filter: { OR: [{ content_contains: $content_contains }, { name_contains: $name_contains }] }, orderBy: $orderBy, first: $first, last: $last) {
+query allCodes($content_contains: String, $name_contains: String, $orderBy: CodeOrderBy, $first: Int, $last: Int, $private: Boolean) {
+  allCodes (filter: { OR: [{ content_contains: $content_contains }, { name_contains: $name_contains }], private: $private }, orderBy: $orderBy, first: $first, last: $last) {
     content
     createdAt
     id

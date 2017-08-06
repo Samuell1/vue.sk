@@ -1,9 +1,9 @@
 <template>
   <div class="panel">
-    <div class="panel__title">Last snippets</div>
+    <div class="panel__title">Last public snippets</div>
     <div v-for="code in allCodes" :key="code.id" @click="$router.push({ name: 'code', params: { code: code.id } })" class="panel__item" >
       <h6>{{ code.name | placeholder(code.content) | truncate(40) }}</h6>
-      <small>{{ code.createdAt }}, {{ code.type.detected }}</small>
+      <small>{{ code.createdAt }}, {{ code.type }}</small>
     </div>
   </div>
 </template>
@@ -17,7 +17,8 @@ export default {
       query: allCodes,
       variables: {
         orderBy: 'createdAt_DESC',
-        first: 20
+        first: 20,
+        private: false
       },
       prefetch: true
     }
