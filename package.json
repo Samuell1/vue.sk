@@ -1,14 +1,13 @@
 {
   "name": "vue.sk",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
+  "description": "Website to share code snippets",
   "author": "Samuell <samuell.patro@gmail.com>",
   "private": true,
   "dependencies": {
     "@nuxtjs/apollo": "^1.0.0",
-    "dateformat": "^2.0.0",
     "highlight.js": "^9.12.0",
-    "lang-detector": "^1.0.6",
+    "lang-detector": "https://github.com/hosein2398/lang-detector/tarball/master",
     "moment": "^2.18.1",
     "nuxt": "latest",
     "vue-highlight-component": "^1.0.0"

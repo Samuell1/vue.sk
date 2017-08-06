@@ -15,7 +15,7 @@
 <script>
 import createCodeGql from '~/apollo/createCode.graphql'
 import allCodes from '~/apollo/allCodes.graphql'
-import detectLang from 'lang-detector'
+// import detectLang from 'lang-detector'
 
 export default {
   head: {
@@ -33,12 +33,12 @@ export default {
   methods: {
     createCode () {
       if (this.data.content) {
-        const type = detectLang(this.data.content, { statistics: true })
+        // const type = detectLang(this.data.content, { statistics: true })
         this.$apollo.mutate({
           mutation: createCodeGql,
           variables: {
-            ...this.data,
-            type: type
+            ...this.data
+            // type: type
           },
           update: (store, { data: { createCode } }) => {
             const data = store.readQuery({ query: allCodes, variables: { orderBy: 'createdAt_DESC', first: 20 } })
