@@ -3,7 +3,7 @@
     <div class="panel__title">Last public snippets</div>
     <div v-for="code in allCodes" :key="code.id" @click="$router.push({ name: 'code', params: { code: code.id } })" class="panel__item" >
       <h6>{{ code.name | placeholder(code.content) | truncate(40) }}</h6>
-      <small>{{ code.createdAt }}, {{ code.type }}</small>
+      <small>{{ code.type }}, {{ code.createdAt | formatDate }}</small>
     </div>
   </div>
 </template>
