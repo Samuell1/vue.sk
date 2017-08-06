@@ -1,16 +1,16 @@
 <template>
-  <section class="detail" v-if="Code && loading == 0">
+  <section class="detail" v-if="code && loading == 0">
     <div class="detail__info">
-      <h4>{{ Code.name | placeholder(Code.content) | truncate(30) }}</h4>
+      <h4>{{ code.name | placeholder(code.content) | truncate(30) }}</h4>
       <ul>
-        <li>Created at: {{ Code.createdAt }}</li>
-        <li>Private: {{ Code.private }}</li>
-        <li>Type: {{ Code.type.detected }}</li>
-        <li>Views: {{ Code.views }}</li>
+        <li>Created at: {{ code.createdAt }}</li>
+        <li>Private: {{ code.private }}</li>
+        <li>Type: {{ code.type }}</li>
+        <li>Views: {{ code.views }}</li>
       </ul>
     </div>
     <div class="detail__code">
-      <highlight :code="Code.content"></highlight>
+      <highlight :code="code.content"></highlight>
     </div>
   </section>
 </template>
@@ -19,7 +19,7 @@
 import Highlight from 'vue-highlight-component'
 
 import CodeGql from '~/apollo/Code.graphql'
-// import updateCodeGql from '~/apollo/updateCode.graphql'
+import updateCodeGql from '~/apollo/updateCode.graphql'
 
 export default {
   components: {
@@ -30,7 +30,7 @@ export default {
   },
   head () {
     return {
-      title: this.Code ? this.Code.name || this.truncate(this.Code.content) : 'NULL'
+      title: this.code.name || this.truncate(this.code.content)
     }
   },
   data () {
@@ -38,28 +38,29 @@ export default {
       loading: 0
     }
   },
+  mounted () {
+    this.incrementViews()
+  },
   apollo: {
-    Code: {
+    code: {
       query: CodeGql,
       prefetch: ({ route }) => ({ id: route.params.code }),
       variables () {
         return { id: this.$route.params.code }
       },
       loadingKey: 'loading',
-      result ({ data, loader, networkStatus }) {
-        // TODO +1 to views
-        // this.$apollo.mutate({
-        //   mutation: updateCodeGql,
-        //   variables: {
-        //     id: this.$route.params.code,
-        //     views: 0
-        //   }
-        // }).then((response) => {
-        //   console.error(response)
-        // }).catch((error) => {
-        //   console.error(error)
-        // })
-      }
+      update: data => data.Code
+    }
+  },
+  methods: {
+    async incrementViews () {
+      await this.$apollo.mutate({
+        mutation: updateCodeGql,
+        variables: {
+          id: this.code.id,
+          views: this.code.views + 1
+        }
+      })
     }
   }
 }
