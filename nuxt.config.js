@@ -19,7 +19,8 @@ module.exports = {
       lang: 'scss'
     },
     {
-      src: 'highlight.js/styles/atelier-cave-light.css'
+      src: 'highlight.js/styles/atelier-cave-light.css',
+      lang: 'css'
     }
   ],
   loading: { color: '#0be884' },

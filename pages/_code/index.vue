@@ -30,12 +30,13 @@ export default {
   },
   head () {
     return {
-      title: this.code.name || this.truncate(this.code.content)
+      title: this.code ? this.code.name || this.truncate(this.code.content) : 'Code'
     }
   },
   data () {
     return {
-      loading: 0
+      loading: 0,
+      code: null
     }
   },
   mounted () {

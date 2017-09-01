@@ -41,11 +41,24 @@ export default {
             type: type || null
           },
           update: (store, { data: { createCode } }) => {
-            if (!createCode.private) {
-              const data = store.readQuery({ query: allCodes, variables: { orderBy: 'createdAt_DESC', first: 20, private: false } })
-              data.allCodes.unshift(createCode)
-              store.writeQuery({ query: allCodes, variables: { orderBy: 'createdAt_DESC', first: 20, private: false }, data })
-            }
+            const data = store.readQuery({
+              query: allCodes,
+              variables: {
+                orderBy: 'createdAt_DESC',
+                first: 20,
+                private: createCode.private
+              }
+            })
+            data.allCodes.unshift(createCode)
+            store.writeQuery({
+              query: allCodes,
+              variables: {
+                orderBy: 'createdAt_DESC',
+                first: 20,
+                private: createCode.private
+              },
+              data
+            })
           }
         }).then((response) => {
           this.$router.push({ name: 'code', params: { code: response.data.createCode.id } })
